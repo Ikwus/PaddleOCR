@@ -14,9 +14,9 @@
 </p>
 
 
-## 紹介
+## はじめに
 
-PaddleOCR は、さまざまな言語で、優れた最先端かつ実用的な OCR ツールを作成することを目的とし、ユーザーがより優れたモデルをトレーニングし、実践的に対応できるようになるために役立つAIOCRです。
+PaddleOCRは、ユーザーがより良いモデルを訓練し、実践に応用できるように、多言語に対応し、素晴らしく先導的で実用的なOCRツールを作成することを目標としています。
 
 <div align="center">
     <img src="https://user-images.githubusercontent.com/50011306/187821591-6cb09459-fdbf-4ad3-8c5a-26af611c211d.png" width="800">
@@ -24,48 +24,66 @@ PaddleOCR は、さまざまな言語で、優れた最先端かつ実用的な 
 <div align="center">
     <img src="../imgs_results/PP-OCRv3/en/en_4.png" width="800">
 </div>
-
-
-
 <div align="center">
     <img src="../imgs_results/ch_ppocr_mobile_v2.0/00006737.jpg" width="800">
 </div>
 
 ## 📣 最新アップデート
+
+- **🔥2023.8.7 PaddleOCR [release/2.7](https://github.com/PaddlePaddle/PaddleOCR/tree/release/2.7)をリリースしました**    
+  - [PP-OCRv4](.././doc/doc_ch/PP-OCRv4_introduction.md)をリリースしました、モバイル版とサーバー版をサポートしています。    
+    - PP-OCRv4-mobile：速度が同等の場合、中国語での認識精度はPP-OCRv3に比べて4.5%向上し、英語での性能は10%向上し、80言語の多言語モデルの平均認識精度は8%以上向上します。
+    - PP-OCRv4-server：現在最高精度のOCRモデルをリリースしました。中国語と英語のシーンでの検出モデルの精度が4.9%向上し、認識モデルの精度が2%向上しました。    
+        [クイックスタート](../../doc/doc_en/quickstart_en.md)を参照することで、一行のコマンドで使用可能です。同時に、モデルの訓練、推論、高性能デプロイの全過程もPaddleXの[一般的な産業向けOCRソリューション](https://aistudio.baidu.com/aistudio/modelsdetail?modelId=286)で少ないコードで完了できます。    
+  - [PP-ChatOCR](https://aistudio.baidu.com/aistudio/modelsdetail?modelId=332)をリリースしました。PP-OCRモデルとERNIE LLMを使用した一般的なのキー情報抽出を行えます。    
+- 🔨**2022.11 [4つの最先端アルゴリズム](../doc_ch/algorithm_overview_en.md)の実装を追加しました**：テキスト検出 [DRRG](../doc_en/algorithm_det_drrg_en.md)、テキスト認識 [RFL](../doc_en/algorithm_rec_rfl_en.md)、超解像 [Text Telescope](../doc_en/algorithm_sr_telescope_en.md)、手書き数式の認識 [CAN](../doc_en/algorithm_rec_can_en.md)    
+- **2022.10 [最適化されたJS版PP-OCRv3モデル](../../deploy/paddlejs/README.md)をリリースしました** モデルサイズ4.3M、推論時間が8倍速く、すぐに使用できるウェブデモがついています。    
+- 💥 **ライブ再生：PP-StructureV2最適化戦略の紹介**。WeChatを使って[下のQRコード](#Community)をスキャンし、PaddlePaddle公式アカウントをフォローし、アンケートに記入してWeChatグループに参加してください。録画リンクと20GのOCR学習資料（PDFからWordに変換する方法や、様々な分野の10モデルなどを含む）を入手できます。
+
 - **🔥2022.8.24 リリース PaddleOCR [release/2.6 ](https://github.com/PaddlePaddle/PaddleOCR/tree/release/2.6)**
-  -  [PP-Structurev2](../../ppstructure/)がリリース。機能と使いやすさがアップグレード、中国語のさまざまな文字に適応、 [レイアウトの復旧](../../ppstructure/recovery)  さらに**1 行のコマンドをPDFへ転換、そして Word**に変換可能。
-  - [レイアウト分析](../../ppstructure/layout) の最適化：モデルのストレージが 95% 削減、速度が 11 倍向上、平均 CPU 時間コストはわずか 41 ミリ秒です。
-  - [表認識](../../ppstructure/table) 最適化：3つの最適化戦略設計、モデルの精度が従来より同時間比が 6% 向上。
-  - [キー情報抽出](../../ppstructure/kie) 最適化:視覚に依存しないモデル構造設計、語彙の実態識別精度が 2.8% 向上、関係抽出の精度が 9.1% 向上。
+  -  [PP-Structurev2](../../ppstructure/)をリリースしました。機能と性能は全面的にアップグレードされ、中国誤に対応しています。新たに[Layout Recovery](../../ppstructure/recovery)と**一行のコマンドでPDFをWordに変換する**機能をサポートしています。        
+  - [layout analysis](../../ppstructure/layout) の最適化：モデルのストレージが95%削減され、速度は11倍に増加し、平均CPU時間コストは41msになりました。
+  - [Table Recognition](../../ppstructure/table) の最適化：3つの最適化戦略を設計し、同等の速度の下でモデルの精度が6%改善されました。    
+  - [Key Information Extraction](../../ppstructure/kie) の最適化：視覚から独立したモデル構造を設計し、semantic entity recognitionの精度が2.8%向上し、関係抽出の精度が9.1%向上しました。        
 
-- **🔥2022.7 リリース [OCR scene application collection](../../applications/README_en.md)**
-   - デジタルチューブ、液晶画面、ナンバー プレート、手書き認識モデル、高精度 SVTR モデルなど、**9つの垂直モデル**をリリース、一般、製造、金融、運輸業界の主要な OCR 垂直アプリケーションをカバー。
+- **🔥2022.8 リリース [OCR scene application collection](../../applications/README_en.md)**
+   - 7セグメント文字、液晶画面、ナンバープレート、手書き認識モデル、高精度 SVTR モデルなど、**9つの分野に特化したモデル**をリリースしました。これらは一般的な産業、製造業、金融業、交通業界での主要な分野特化型OCRへの応用方法に対応しています。
 
-- **🔥2022.5.9 リリース PaddleOCR [release/2.5](https://github.com/PaddlePaddle/PaddleOCR/tree/release/2.5)**
-    -  [PP-OCRv3](../doc_en/ppocr_introduction_en.md#pp-ocrv3)リリース: 同等の速度で、中国語の識別効果は PP-OCRv2 より 5% 向上、英語の識別効果は 11% 向上し、80 言語の多言語モデルの平均認識精度は 5% 以上向上。
-    -  [PPOCRLabelv2](./PPOCRLabel)リリース: 表認識タスク、キー情報抽出タスク、イレギュラーテキスト画像のアノテーション機能を追加。
-    - インタラクティブな電子書籍 [*"OCR に没入"*](../doc_en/ocr_book_en.md)、 をリリース。 OCRフルスタック技術の最先端の理論とコードの実践をカバー。
+- **2022.8 [8つの最先端アルゴリズム](doc/doc_en/algorithm_overview_en.md)の実装を追加しました**        
+  - テキスト検出：[FCENet](../../doc/doc_en/algorithm_det_fcenet_en.md), [DB++](../../doc/doc_en/algorithm_det_db_en.md)        
+  - テキスト認識：[ViTSTR](../../doc/doc_en/algorithm_rec_vitstr_en.md), [ABINet](../../doc/doc_en/algorithm_rec_abinet_en.md), [VisionLAN](../../doc/doc_en/algorithm_rec_visionlan_en.md), [SPIN](../../doc/doc_en/algorithm_rec_spin_en.md), [RobustScanner](../../doc/doc_en/algorithm_rec_robustscanner_en.md)        
+  - Table Recognition：[TableMaster](../../doc/doc_en/algorithm_table_master_en.md)   
 
-- [もっと](../doc_en/update_en.md)
+- **2022.5.9 PaddleOCR [release/2.5](https://github.com/PaddlePaddle/PaddleOCR/tree/release/2.5)をリリースしました**     
+    -  [PP-OCRv3](../doc_en/ppocr_introduction_en.md#pp-ocrv3)をリリースしました。同等の速度で、中国語での精度はPP-OCRv2に比べて5%、英語での精度は11%、80言語の多言語モデルの平均認識精度は5%以上改善しました。
+    -  [PPOCRLabelv2](../../PPOCRLabel)をリリースしました。表認識タスク、キー情報抽出タスク、不規則なテキスト画像の注釈機能を追加しました。        
+    - インタラクティブな電子ブック[*"Dive into OCR"*](../doc_en/ocr_book_en.md)をリリースしました。これはOCRにおける全スタック技術の最先端理論とコードデモをカバーしています。        
+- 詳しくは[こちら](../doc_en/update_en.md)をご覧ください。
 
 
 ## 🌟 PaddleOCRとは？
 
-PaddleOCRは、OCRに関連するさまざまな最先端のアルゴリズムに対応する、産業用の機能モデル/ソリューション [PP-OCR](../doc_en/ppocr_introduction_en.md) や [PP-Structure](../../ppstructure/README.md) を開発。これに基づき、データの生成、モデルのトレーニング、圧縮、推論、展開の全プロセスを実行可能。
+PaddleOCRは、OCRに関連するさまざまな最先端のアルゴリズムをサポートしています。
+産業用の特化モデル/ソリューション [PP-OCR](../doc_en/ppocr_introduction_en.md) や [PP-Structure](../../ppstructure/README.md) および [PP-ChatOCR](https://aistudio.baidu.com/aistudio/projectdetail/6488689)を開発し、データ生成からモデル訓練、圧縮、推論、デプロイまでの一連のプロセスを整備しています。  
 
 <div align="center">
     <img src="https://user-images.githubusercontent.com/50011306/195771471-fad5eb1d-190d-4a7b-8b0c-0433fb32445f.png">
 </div>
 
-## ⚡ 今すぐトライアル
-
-```bash
-pip3 install paddlepaddle # for gpu user please install paddlepaddle-gpu
-pip3 install paddleocr
-paddleocr --image_dir /your/test/image.jpg --lang=japan # change for i18n abbr
-```
-
->Python環境がない場合は [環境の準備](../doc_en/environment_en.md)に従ってください。[チュートリアル](#Tutorials) から始めることをお勧めします。
+> ドキュメントチュートリアルの「クイックデモ」から始めることをお勧めします  
+  
+  
+## ⚡ クイックデモ
+  
+- ウェブでのオンラインデモ  
+    - PP-OCRv4 のオンラインデモ：https://aistudio.baidu.com/application/detail/7658  
+    - PP-ChatOCR のオンラインデモ：https://aistudio.baidu.com/application/detail/7709  
+  
+- 一行のコードでの簡単な利用方法：[クイックスタート（中国語/英語/多言語/ドキュメント分析)](../../doc/doc_en/quickstart_en.md)  
+- Paddle AI パッケージ（PaddleX）でのトレーニング、推論、高性能デプロイのデモ：  
+    - PP-OCRv4：https://aistudio.baidu.com/projectdetail/paddlex/6796224  
+    - PP-ChatOCR：https://aistudio.baidu.com/projectdetail/paddlex/6796372  
+- モバイルデモ：[インストールデモ](https://ai.baidu.com/easyedge/app/openSource?from=paddlelite)(EasyEdgeとPaddle-Liteを使い、iOSとAndroidシステムをサポートします。) 
 
 <a name="本"></a>
 
